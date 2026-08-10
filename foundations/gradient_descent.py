@@ -1,10 +1,4 @@
 class Solution:
-    def f(self, x):
-        return x**2
-
-    def f_prime(self, x):
-        return 2*x
-
     def get_minimizer(self, iterations: int, learning_rate: float, init: int) -> float:
         # Objective function: f(x) = x^2
         # Derivative:         f'(x) = 2x
@@ -12,6 +6,7 @@ class Solution:
         # Round final answer to 5 decimal places
         x = init
         for _ in range(iterations):
-            x = x - learning_rate*(self.f_prime(x))
+            derivative = 2*x
+            x = x - learning_rate*(derivative)
         
         return round(x, 5)
